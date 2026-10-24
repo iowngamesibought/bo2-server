@@ -68,7 +68,7 @@ fn config_check_is_relative_to_its_file_and_does_not_create_database() {
     .unwrap();
     let config = Deployment::load(&path).unwrap();
     assert_eq!(
-        config.profile,
+        config.profile.unwrap(),
         root.canonicalize().unwrap().join("profile.json")
     );
     let output = Command::new(env!("CARGO_BIN_EXE_bo2-server"))
@@ -135,5 +135,79 @@ fn malformed_or_legacy_settings_are_rejected_and_example_is_valid_toml() {
     example.insert("experimental_bootstrap".into(), toml::Value::Boolean(true));
     fs::write(&path, toml::to_string(&example).unwrap()).unwrap();
     assert!(Deployment::load(&path).is_ok());
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn executable_mode_is_explicit_relative_and_rejects_unknown_inputs_without_output() {
+    let root = temp();
+    let path = root.join("settings.toml");
+    let mut config = settings();
+    config.insert("executable".into(), "input.elf".into());
+    fs::write(&path, toml::to_string(&config).unwrap()).unwrap();
+    assert!(Deployment::load(&path).is_err()); // Never silently prefer one source.
+    config.remove("profile");
+    fs::write(&path, toml::to_string(&config).unwrap()).unwrap();
+    assert_eq!(
+        Deployment::load(&path).unwrap().executable.unwrap(),
+        root.canonicalize().unwrap().join("input.elf")
+    );
+    fs::write(root.join("input.elf"), b"unsupported synthetic executable").unwrap();
+    for option in ["--write-bundle", "--write-profile", "--write-endpoints"] {
+        let output = root.join("derived");
+        let result = Command::new(env!("CARGO_BIN_EXE_bo2-server"))
+            .args([
+                "--config",
+                path.to_str().unwrap(),
+                option,
+                output.to_str().unwrap(),
+            ])
+            .output()
+            .unwrap();
+        assert!(!result.status.success());
+        assert!(String::from_utf8_lossy(&result.stderr).contains("unsupported executable"));
+        assert!(!output.exists());
+        assert!(!root.join("state").exists());
+    }
+    config.remove("executable");
+    fs::write(&path, toml::to_string(&config).unwrap()).unwrap();
+    assert!(Deployment::load(&path).is_err());
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn offline_exports_preserve_existing_files_and_do_not_guess_endpoints_from_profile() {
+    let root = temp();
+    let path = root.join("settings.toml");
+    fs::write(&path, toml::to_string(&settings()).unwrap()).unwrap();
+    let profile = root.join("profile.json");
+    let original = include_bytes!("fixtures/profile.json");
+    fs::write(&profile, original).unwrap();
+    let result = Command::new(env!("CARGO_BIN_EXE_bo2-server"))
+        .args([
+            "--config",
+            path.to_str().unwrap(),
+            "--write-bundle",
+            profile.to_str().unwrap(),
+        ])
+        .output()
+        .unwrap();
+    assert!(!result.status.success());
+    assert_eq!(fs::read(&profile).unwrap(), original);
+    for option in ["--write-profile", "--write-endpoints"] {
+        let output = root.join("derived.json");
+        let result = Command::new(env!("CARGO_BIN_EXE_bo2-server"))
+            .args([
+                "--config",
+                path.to_str().unwrap(),
+                option,
+                output.to_str().unwrap(),
+            ])
+            .output()
+            .unwrap();
+        assert!(!result.status.success());
+        assert!(!output.exists());
+    }
+    assert!(!root.join("state").exists());
     fs::remove_dir_all(root).unwrap();
 }

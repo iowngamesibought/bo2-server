@@ -7,7 +7,7 @@ different evidence levels. State which one actually happened.
 
 ## Layout
 
-- `src/`: transport, identity, codec, store, service dispatch and profile renderer.
+- `src/`: transport, identity, codec, store, service dispatch and profile renderer, bounded ELF mapper and runtime input loader.
 - `tests/`: synthetic unit/integration vectors, loopback clients and persistence tests.
 - `docs/`: generic maintained contracts, operations and current limitations.
 - `AGENTS.md`, `CLAUDE.md`, `.agents/skills/`, `.claude/skills/`: guided deployment.

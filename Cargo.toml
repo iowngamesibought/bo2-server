@@ -9,6 +9,7 @@ description = "Experimental private multiplayer and competition backend"
 des = "=0.8.1"
 hmac = "=0.12.1"
 sha1 = "=0.10.6"
+sha2 = "=0.10.9"
 tiger = "=0.2.1"
 rand = "=0.8.5"
 rusqlite = { version = "=0.40.2", features = ["bundled"] }
@@ -20,4 +21,3 @@ toml = "=0.8.23"
 [[bin]]
 name = "bo2-server"
 path = "src/main.rs"
-

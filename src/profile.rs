@@ -6,7 +6,7 @@ use crate::{
 use serde::Deserialize;
 use std::{collections::BTreeSet, path::Path};
 
-#[derive(Clone, Debug, Deserialize)]
+#[derive(Clone, Debug, Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Profile {
     pub schema_version: u32,

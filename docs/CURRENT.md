@@ -1,39 +1,29 @@
 # Current status
 
-2026-10-24: publication preparation. The live server was stopped at the user's
-request and remains stopped. No commit, push, network configuration change or
-public deployment was performed.
+2026-10-25: aligned runtime extraction with the sibling project's Rust-source
+convention. Supported-build identity, addresses and owned defaults now live in
+`src/client_build.rs`. Removed the separate public extraction-config folder,
+generic JSON recipe interpreter and duplicate Python extractor. Actual client
+strings still come exclusively from the user's executable at runtime.
 
-The original project folder remains authoritative. Final checks from that folder
-passed: 96 Rust tests, 4 publication-gate tests, formatting, strict Clippy and the
-release build. The publication scan covered 76 files with zero failures.
+The server remains stopped at the user's request. Existing local settings,
+custom profile, database, logs and backups are preserved. No restart, console
+probe, DNS/router edit, commit or publication occurred.
 
-The package/binary is now `bo2-server`, as requested by the user. Server settings
-use `bo2-server.toml`, with a public `bo2-server.example.toml`; the local settings
-were migrated with the same values and database path. Client profiles remain JSON.
-Apart from the project name, public source, docs and fixtures use generic
-terminology. Actual client strings, old research documentation, local
-input identities and user-supplied executable files are retained under ignored
-`game/`. Local settings and runtime state are excluded from Git.
+## Setup and validation
 
-Client IP filtering has been removed at the user's request. Any source address
-that can reach the configured listener may connect. Local/example settings no
-longer contain `allow_ips`; handshake validation, source-bound tokens and capacity
-limits remain in effect. A two-client loopback regression passes without any
-client enrollment configuration. The existing bind address is unchanged.
+New installations use `executable` in TOML; existing custom installations can
+retain `profile`. Exactly one source is required. The Rust ELF parser and input
+fingerprint gate remain. All offline checks and DNS/profile/bundle exports use
+the Rust binary. No separate extraction JSON or generated profile is needed to
+build or start executable mode. Public test fixtures and private profile/endpoint
+exports can still use JSON; these are different from an extraction recipe.
 
-## Fresh setup generation
-
-The agent guide now uses `scripts/prepare_game.py` and the reviewed public
-`config/client-layout.json`. With the exact user-owned decrypted executable, it
-generates a local input copy, runtime profile, application endpoint file and hash
-manifest. No private research folder is needed. Unknown digests and conflicting
-existing files are rejected. Generic display labels are the only policy-text
-differences from the existing profile; all category keys, gameplay tokens, IDs
-and rules are preserved. See [preparation](PREPARATION.md) for the full workflow.
-Four synthetic preparation tests complement the four publication-gate tests.
-A fresh source-only setup is checked offline; this does not certify the generated
-default display labels on consoles. The existing local profile is preserved.
+The public guide identifies the input using the Rust `SUPPORTED_BUILD` definition.
+All actual client inputs, derived identifiers and exports stay under ignored
+`game/`. Public docs and shared agent skills remain part of the source release.
+The package/binary remains `bo2-server`, with local `bo2-server.toml` settings.
+Client IP enrollment is not required; protocol/token/capacity checks still apply.
 
 ## Preserved behavior
 
@@ -46,8 +36,9 @@ Before this refactor, a two-console match yielded a saved four-to-five win and a
 user-confirmed five-win achievement. The initial four wins were operator-seeded.
 The public suite separately verifies a new player progressing from zero to five,
 with duplicate/stale reports, ranked reads and database reopen between matches.
-The renamed/profile-driven build requires a future authorized console retest;
-byte equality and loopback tests do not substitute for that acceptance.
+The user reports that the updated build works with the preserved custom profile.
+This does not establish a new completed-match/result test or console acceptance
+for executable-mode defaults; byte equality and offline checks remain separate.
 
 ## Verification and remaining work
 
@@ -64,3 +55,18 @@ achievement succeeded with other League counters still at their defaults.
 No distribution license has been selected. Retained package and dependency names
 are required tooling/attribution, not embedded client branding. Do not publish
 private inputs, log contents, real identities or the whole working directory.
+
+
+## Rust-source convention verification
+
+All102 Rust tests,5 publication-gate tests, formatting, strict Clippy and the
+locked offline release build passed. The publication scan/export covers76 files
+with no separate config directory or extraction helper. Tracked working-tree
+deletions are excluded from the source export without staging; tracked private
+files still fail the audit. This does not rewrite or audit away Git history.
+
+Real-input profile and endpoint exports are byte-identical to the previous
+runtime loader. The default9,794-byte and customized9,950-byte bundles are each
+unchanged. A fresh source-only export built and passed check/profile/endpoint/
+bundle exports from another working directory using only the user's executable.
+No database or listener was created. No new console acceptance is claimed.

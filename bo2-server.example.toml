@@ -1,8 +1,11 @@
 # Copy to bo2-server.toml. Relative paths resolve from this file.
-# Set the private bind address and provide your validated local profile.
+# Set the private bind address and provide your validated local executable.
+# For console use, replace loopback with a reachable private IPv4; keep port 3074.
 bind = "127.0.0.1:3074"
 database = "runtime/league.sqlite"
-profile = "game/profile.json"
+executable = "game/inputs/client.elf"
+# Existing customized deployments may use profile = "game/profile.json" instead.
+# Set exactly one of executable or profile.
 experimental_bootstrap = false
 
 # Enable experimental_bootstrap explicitly after reviewing the identity limitations.

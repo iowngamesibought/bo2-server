@@ -19,19 +19,19 @@ validation, token source binding and connection limits still apply.
 
 ## Files and checks
 
-Generate `game/` first using [preparation](PREPARATION.md). This creates the
-runtime profile and supporting input/DNS/provenance files from the supported
-user-supplied executable, without a private research checkout.
+Follow [preparation](PREPARATION.md) to place the verified executable under ignored
+`game/inputs/`. Configure `executable` for runtime extraction, or retain `profile`
+for an existing customized JSON profile; setting both or neither is an error.
+Copy the public example only when settings do not exist, select a private bind
+address and persistent SQLite path, and explicitly enable the experimental bootstrap.
+Paths resolve from the configuration file, not the shell's working directory.
 
-Copy `bo2-server.example.toml` to ignored `bo2-server.toml`, prepare
-`game/profile.json`, select a private bind address and a persistent
-SQLite path, and enable the experimental bootstrap explicitly. Relative paths
-are anchored to the settings file, not the shell's working directory.
-
-`--check-config` validates settings/profile and renders the bundle without
-opening a listener or database. `--write-bundle game/startup.bundle` writes only
-the rendered bundle. These are preparation checks, not gameplay acceptance.
-A missing profile is a startup error; there is no fallback containing game data.
+`--check-config` validates the selected source and renders the bundle without a
+listener or database. `--write-bundle game/startup.bundle` exports an inspection
+copy. Executable mode also supports `--write-endpoints game/endpoints.json` and
+`--write-profile game/profile.json`. Export destinations must be new files.
+Missing or unsupported input is a startup error, with no synthetic fallback.
+These operations do not establish console acceptance or database compatibility.
 
 Run `bo2-server --config bo2-server.toml` after deployment is authorized.
 The startup line is `server.listening`. Keep background process identity, binary

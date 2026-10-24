@@ -16,7 +16,7 @@ pub const RULES_REVISION: u32 = 1;
 /// The one shared division every team enters.
 pub const SHARED_DIVISION: i32 = 1;
 
-#[derive(Clone, Debug, serde::Deserialize)]
+#[derive(Clone, Debug, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct LeagueDef {
     pub id: i32,

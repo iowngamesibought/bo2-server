@@ -1,10 +1,29 @@
 """Synthetic negative checks for the source publication gate."""
 import tempfile
+import subprocess
 import unittest
 from pathlib import Path
-from check_publish_tree import audit
+from check_publish_tree import audit, publication_candidates
 
 class PublicationGateTests(unittest.TestCase):
+    def test_working_tree_deletions_are_excluded_but_tracked_private_files_are_audited(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            def git(*args):
+                subprocess.run(['git', *args], cwd=root, check=True, capture_output=True)
+            git('init')
+            (root / 'old.md').write_text('removed source', encoding='utf-8')
+            (root / '.gitignore').write_text('/game/\n', encoding='utf-8')
+            (root / 'game').mkdir()
+            (root / 'game/private.json').write_text('{}', encoding='utf-8')
+            git('add', 'old.md', '.gitignore')
+            git('add', '-f', 'game/private.json')
+            (root / 'old.md').unlink()
+            (root / 'README.md').write_text('new source', encoding='utf-8')
+            paths = publication_candidates(root)
+            self.assertEqual(paths, ['.gitignore', 'README.md', 'game/private.json'])
+            self.assertEqual([name for name, _ in audit(root, paths)], ['game/private.json'])
+
     def check_case(self, name, data, terms=()):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)

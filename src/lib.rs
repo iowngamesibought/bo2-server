@@ -1,7 +1,10 @@
 //! Experimental client console protocol implementation. No game files are required.
 pub mod archive;
+mod client_build;
+pub mod client_data;
 pub mod deployment;
 pub mod directory;
+pub mod elf;
 pub mod groups;
 pub mod identity;
 pub mod league;

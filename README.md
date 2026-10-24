@@ -29,36 +29,29 @@ identify the required client data and endpoints, validates local settings,
 explains the DNS override, and verifies deployment. No client data, service
 hostnames or decryption instructions are distributed with this repository.
 
-For the supported executable, the guide uses a reproducible local generator:
+New installations load the user's executable directly at startup. The Rust loader
+verifies its identity, parses ELF load segments and reads reviewed virtual-address
+ranges. This hybrid design retains supported-build addresses while keeping all
+client-derived content local. See [preparation](docs/PREPARATION.md).
 
 ```text
-python scripts/prepare_game.py --executable "<user's already decrypted multiplayer executable>"
-```
-
-Python 3.11+ is required. The helper verifies the exact input digest and generates
-the profile, DNS endpoint file, input copy and manifest under ignored `game/`.
-It does not require a private research checkout or guess identifiers. See the
-[preparation guide](docs/PREPARATION.md) for every output and validation step.
-
-```text
-bo2-server.example.toml     # settings template
+bo2-server.example.toml     # public settings template
 bo2-server.toml             # local settings; ignored
-game/profile.json           # verified local client profile; ignored
-game/inputs/                # user-provided files; ignored
-game/endpoints.json         # generated DNS guidance; ignored
-game/setup-manifest.json    # generated input/output hashes; ignored
+game/inputs/client.elf      # runtime input in executable mode; ignored
+game/profile.json           # optional custom profile/inspection export; ignored
+game/endpoints.json         # exported DNS guidance; ignored
 runtime/                   # database, backups and logs; ignored
 ```
 
-The public fixture at `tests/fixtures/profile.json` contains invented identifiers
-for tests; it is not a working profile for a retail client. An existing verified
-local profile is preserved during migration. Unsupported executable digests
-require further compatibility research; the helper refuses them before writing.
+Existing custom profiles remain supported. Use exactly one of `executable` or
+`profile` in TOML. Build metadata and owned defaults live in Rust source; no
+separate extraction-config folder is shipped. Synthetic fixtures are never a fallback
+for missing client files. Unknown executable digests fail before serving.
 
 ## Build and run
 
 Use the pinned Rust toolchain and a native C compiler. Copy the example settings
-to `bo2-server.toml`, supply the profile and bind address, and explicitly enable
+to `bo2-server.toml`, supply the executable path and bind address, and explicitly enable
 the experimental bootstrap. Paths resolve relative to the settings file.
 Any client that can reach the listener may connect; no client IP allowlist is required.
 Server settings use TOML; the separate client profile and test fixtures use JSON.
@@ -71,7 +64,10 @@ cargo run --locked --release -- --config bo2-server.toml
 
 `--check-config` renders/validates startup data without opening a listener or
 writing the database. `--write-bundle game/startup.bundle` exports the same
-bundle locally without starting the service. Stop a foreground run with Ctrl+C.
+bundle locally without starting the service. Executable mode also provides
+`--write-endpoints game/endpoints.json` and `--write-profile game/profile.json`.
+Exports require new filenames and never replace existing files. Stop a foreground
+run with Ctrl+C.
 See [deployment](docs/DEPLOYMENT.md) for backups, logs and troubleshooting.
 
 ## Verification and publication
@@ -82,7 +78,6 @@ cargo test --locked
 cargo clippy --locked --all-targets -- -D warnings
 python scripts/check_publish_tree.py
 python scripts/test_publish_tree.py
-python scripts/test_prepare_game.py
 ```
 
 [Current status](docs/CURRENT.md) records the latest checks and limits.

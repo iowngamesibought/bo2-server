@@ -1,5 +1,5 @@
 //! Render operator-supplied public categories and playlists.
-#[derive(Clone, Debug, serde::Deserialize)]
+#[derive(Clone, Debug, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct CategoryDef {
     pub key: String,
@@ -7,7 +7,7 @@ pub struct CategoryDef {
     pub description: String,
 }
 
-#[derive(Clone, Debug, serde::Deserialize)]
+#[derive(Clone, Debug, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct PlaylistDef {
     pub id: u32,

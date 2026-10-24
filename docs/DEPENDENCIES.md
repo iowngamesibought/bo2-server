@@ -13,6 +13,7 @@ distribution license has been selected; no dependency notice was anonymized.
 | serde | 1.0.229 | MIT OR Apache-2.0 |
 | serde_json | 1.0.145 | MIT OR Apache-2.0 |
 | sha1 | 0.10.6 | MIT OR Apache-2.0 |
+| sha2 | 0.10.9 | MIT OR Apache-2.0 |
 | tiger | 0.2.1 | MIT OR Apache-2.0 |
 | toml | 0.8.23 | MIT OR Apache-2.0 |
 

@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ALLOWED_ROOT = {'AGENTS.md', 'CLAUDE.md', 'README.md', 'Cargo.toml', 'Cargo.lock',
     'rust-toolchain.toml', '.gitignore', '.gitattributes', 'bo2-server.example.toml'}
 ALLOWED_SUFFIX = {'.rs', '.md', '.toml', '.json', '.py', '.yml', '.yaml'}
-ALLOWED_DIRS = {'src', 'tests', 'docs', 'scripts', 'config', '.github'}
+ALLOWED_DIRS = {'src', 'tests', 'docs', 'scripts', '.github'}
 SKILLS = {f'{folder}/skills/{skill}/SKILL.md' for folder in ('.claude', '.agents')
     for skill in ('pick-game-files', 'dns-override')}
 REVIEWED_FIXTURES = {'tests/fixtures/synthetic.json', 'tests/fixtures/league06-results.json',
@@ -60,14 +60,21 @@ def audit(root, paths, terms=()):
     return failures
 
 
+def publication_candidates(root):
+    def paths(*options):
+        result = subprocess.run(['git', 'ls-files', '-z', *options],
+            cwd=root, check=True, capture_output=True)
+        return set(p for p in result.stdout.decode('utf-8').split('\0') if p)
+    # Export the working tree, including tracked edits/deletions, without staging.
+    return sorted(paths('--cached', '--others', '--exclude-standard') - paths('--deleted'))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--private-terms', type=Path, help='Optional ignored JSON array of identifying terms to reject')
     parser.add_argument('--export', type=Path, help='New directory outside the repository; sources only, no Git metadata')
     args = parser.parse_args()
-    result = subprocess.run(['git', 'ls-files', '-z', '--cached', '--others', '--exclude-standard'],
-        cwd=ROOT, check=True, capture_output=True)
-    paths = sorted(set(p for p in result.stdout.decode('utf-8').split('\0') if p))
+    paths = publication_candidates(ROOT)
     terms = json.loads(args.private_terms.read_text(encoding='utf-8')) if args.private_terms else []
     if not isinstance(terms, list) or any(not isinstance(t, str) or not t for t in terms):
         parser.error('private terms must be a list of nonempty strings')

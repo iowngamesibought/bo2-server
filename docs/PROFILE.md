@@ -1,13 +1,14 @@
 # Local client profile
 
-`game/profile.json` is required for deployment and ignored by Git. Keep actual
-map/script/member names there. The public `tests/fixtures/profile.json` describes
-the shape using invented data only; do not deploy it to a retail client.
+The runtime derives this profile in memory when `executable` is configured.
+An ignored `game/profile.json` is required only for the alternative `profile`
+mode used by customized installations. Keep actual map/script/member names
+private. The synthetic fixture describes the shape but is not deployable.
 
-Generate the supported default profile with `scripts/prepare_game.py` and the
-user's already decrypted executable, following [preparation](PREPARATION.md).
-The public layout contains file ranges and a full-input digest; extracted tokens
-are written only to the ignored output. Existing profiles are never overwritten.
+Export the supported default with `--write-profile game/profile.json` in executable
+mode. See [preparation](PREPARATION.md). The Rust build module holds
+virtual-address ranges and input identity; the loader
+parses ELF segments to locate bytes. Existing profiles are never overwritten.
 
 | Field | Meaning |
 | --- | --- |
