@@ -1,0 +1,730 @@
+{
+  "schema_version": 1,
+  "client_label": "supported-client-1",
+  "input_sha256": "ba7fd70b68028f833dc1f1f38d2d382485592f1ae25e28804eac583fd8596c39",
+  "input_bytes": 14215768,
+  "profile": {
+    "schema_version": 1,
+    "notice": "Local profile generated from a verified user-supplied executable; keep private.",
+    "bundle_prefix": {
+      "slices": [
+        [
+          9844132,
+          15
+        ]
+      ]
+    },
+    "bundle_suffix": {
+      "slices": [
+        [
+          9844236,
+          4
+        ]
+      ]
+    },
+    "playlist_member_name": {
+      "slices": [
+        [
+          9633264,
+          17
+        ]
+      ]
+    },
+    "league_member_name": {
+      "slices": [
+        [
+          9844252,
+          12
+        ]
+      ]
+    },
+    "league_category_filter": {
+      "slices": [
+        [
+          9349517,
+          11
+        ]
+      ]
+    },
+    "minimum_player_settings": [
+      {
+        "slices": [
+          [
+            9349796,
+            16
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9483176,
+            7
+          ],
+          [
+            9349801,
+            11
+          ]
+        ]
+      }
+    ],
+    "maps": [
+      {
+        "slices": [
+          [
+            9818772,
+            5
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9818612,
+            11
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9818572,
+            10
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9330268,
+            8
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9818692,
+            10
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9818732,
+            11
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9818796,
+            11
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9818876,
+            11
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9818836,
+            12
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9818916,
+            7
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9818948,
+            8
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9819068,
+            10
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9819028,
+            10
+          ]
+        ]
+      },
+      {
+        "slices": [
+          [
+            9818988,
+            10
+          ]
+        ]
+      }
+    ],
+    "leagues": [
+      {
+        "id": 1,
+        "name": "Series 1",
+        "description": "Private competition series 1.",
+        "team_size": 4,
+        "teams_allowed": true,
+        "randoms_allowed": true,
+        "placement_games": 5,
+        "playlist_id": 1,
+        "category": {
+          "slices": [
+            [
+              9349517,
+              7
+            ],
+            [
+              9950101,
+              3
+            ],
+            [
+              9241005,
+              3
+            ]
+          ]
+        },
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9423808,
+                3
+              ]
+            ]
+          },
+          {
+            "slices": [
+              [
+                9289570,
+                3
+              ]
+            ]
+          },
+          {
+            "slices": [
+              [
+                9822016,
+                4
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Series 2",
+        "description": "Private competition series 2.",
+        "team_size": 4,
+        "teams_allowed": true,
+        "randoms_allowed": true,
+        "placement_games": 5,
+        "playlist_id": 2,
+        "category": {
+          "slices": [
+            [
+              9344812,
+              6
+            ],
+            [
+              9246618,
+              4
+            ],
+            [
+              1263194,
+              2
+            ],
+            [
+              9251007,
+              3
+            ]
+          ]
+        },
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9822016,
+                4
+              ]
+            ]
+          },
+          {
+            "slices": [
+              [
+                9243866,
+                2
+              ]
+            ]
+          },
+          {
+            "slices": [
+              [
+                9821992,
+                3
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      {
+        "key": {
+          "slices": [
+            [
+              9252999,
+              4
+            ]
+          ]
+        },
+        "name": "Category 1",
+        "description": "Private playlist category 1."
+      },
+      {
+        "key": {
+          "slices": [
+            [
+              9338973,
+              6
+            ],
+            [
+              9254048,
+              4
+            ]
+          ]
+        },
+        "name": "Category 2",
+        "description": "Private playlist category 2."
+      }
+    ],
+    "playlists": [
+      {
+        "id": 10,
+        "name": "Playlist 10",
+        "description": "Private playlist 10.",
+        "category": {
+          "slices": [
+            [
+              9252999,
+              4
+            ]
+          ]
+        },
+        "max_party": 6,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9423808,
+                3
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "name": "Playlist 11",
+        "description": "Private playlist 11.",
+        "category": {
+          "slices": [
+            [
+              9252999,
+              4
+            ]
+          ]
+        },
+        "max_party": 4,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9423809,
+                2
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "name": "Playlist 12",
+        "description": "Private playlist 12.",
+        "category": {
+          "slices": [
+            [
+              9252999,
+              4
+            ]
+          ]
+        },
+        "max_party": 6,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9289570,
+                3
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "name": "Playlist 13",
+        "description": "Private playlist 13.",
+        "category": {
+          "slices": [
+            [
+              9252999,
+              4
+            ]
+          ]
+        },
+        "max_party": 6,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9822232,
+                4
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "name": "Playlist 14",
+        "description": "Private playlist 14.",
+        "category": {
+          "slices": [
+            [
+              9252999,
+              4
+            ]
+          ]
+        },
+        "max_party": 6,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9822016,
+                4
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "name": "Playlist 15",
+        "description": "Private playlist 15.",
+        "category": {
+          "slices": [
+            [
+              9252999,
+              4
+            ]
+          ]
+        },
+        "max_party": 6,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9243866,
+                2
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "name": "Playlist 16",
+        "description": "Private playlist 16.",
+        "category": {
+          "slices": [
+            [
+              9252999,
+              4
+            ]
+          ]
+        },
+        "max_party": 6,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9822088,
+                3
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "name": "Playlist 17",
+        "description": "Private playlist 17.",
+        "category": {
+          "slices": [
+            [
+              9252999,
+              4
+            ]
+          ]
+        },
+        "max_party": 6,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9821992,
+                3
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "name": "Playlist 18",
+        "description": "Private playlist 18.",
+        "category": {
+          "slices": [
+            [
+              9252999,
+              4
+            ]
+          ]
+        },
+        "max_party": 6,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9822040,
+                2
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "name": "Playlist 19",
+        "description": "Private playlist 19.",
+        "category": {
+          "slices": [
+            [
+              9252999,
+              4
+            ]
+          ]
+        },
+        "max_party": 6,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9423808,
+                3
+              ]
+            ]
+          },
+          {
+            "slices": [
+              [
+                9289570,
+                3
+              ]
+            ]
+          },
+          {
+            "slices": [
+              [
+                9822232,
+                4
+              ]
+            ]
+          },
+          {
+            "slices": [
+              [
+                9822016,
+                4
+              ]
+            ]
+          },
+          {
+            "slices": [
+              [
+                9822040,
+                2
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "name": "Playlist 30",
+        "description": "Private playlist 30.",
+        "category": {
+          "slices": [
+            [
+              9338973,
+              6
+            ],
+            [
+              9254048,
+              4
+            ]
+          ]
+        },
+        "max_party": 4,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9417272,
+                3
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "name": "Playlist 31",
+        "description": "Private playlist 31.",
+        "category": {
+          "slices": [
+            [
+              9338973,
+              6
+            ],
+            [
+              9254048,
+              4
+            ]
+          ]
+        },
+        "max_party": 4,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9822112,
+                3
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "name": "Playlist 32",
+        "description": "Private playlist 32.",
+        "category": {
+          "slices": [
+            [
+              9338973,
+              6
+            ],
+            [
+              9254048,
+              4
+            ]
+          ]
+        },
+        "max_party": 4,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9822136,
+                3
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": 33,
+        "name": "Playlist 33",
+        "description": "Private playlist 33.",
+        "category": {
+          "slices": [
+            [
+              9338973,
+              6
+            ],
+            [
+              9254048,
+              4
+            ]
+          ]
+        },
+        "max_party": 4,
+        "gametypes": [
+          {
+            "slices": [
+              [
+                9822184,
+                4
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "endpoints": {
+    "authentication": {
+      "slices": [
+        [
+          9823800,
+          32
+        ]
+      ]
+    },
+    "lobby": {
+      "slices": [
+        [
+          9823916,
+          33
+        ]
+      ]
+    }
+  }
+}

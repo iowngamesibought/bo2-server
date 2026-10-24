@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "notice": "Public synthetic profile. Invented names; no game content.",
+  "bundle_prefix": "example_online_",
+  "bundle_suffix": ".bundle",
+  "playlist_member_name": "playlists.info",
+  "league_member_name": "competition.info",
+  "league_category_filter": "competition",
+  "minimum_player_settings": [
+    "party_minimum",
+    "prematch_minimum"
+  ],
+  "maps": [
+    "arena_alpha",
+    "arena_beta"
+  ],
+  "leagues": [
+    {
+      "id": 1,
+      "name": "Series 1",
+      "description": "Synthetic competition series.",
+      "team_size": 4,
+      "teams_allowed": true,
+      "randoms_allowed": true,
+      "placement_games": 5,
+      "playlist_id": 1,
+      "category": "competition_1",
+      "gametypes": [
+        "mode_1"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Series 2",
+      "description": "Synthetic competition series.",
+      "team_size": 4,
+      "teams_allowed": true,
+      "randoms_allowed": true,
+      "placement_games": 5,
+      "playlist_id": 2,
+      "category": "competition_2",
+      "gametypes": [
+        "mode_2"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "key": "category_1",
+      "name": "Category 1",
+      "description": "Synthetic category."
+    },
+    {
+      "key": "category_2",
+      "name": "Category 2",
+      "description": "Synthetic category."
+    }
+  ],
+  "playlists": [
+    {
+      "id": 10,
+      "name": "Playlist 1",
+      "description": "Synthetic playlist.",
+      "category": "category_1",
+      "max_party": 6,
+      "gametypes": [
+        "mode_1"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Playlist 2",
+      "description": "Synthetic playlist.",
+      "category": "category_2",
+      "max_party": 4,
+      "gametypes": [
+        "mode_2"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Playlist 3",
+      "description": "Synthetic playlist.",
+      "category": "category_1",
+      "max_party": 6,
+      "gametypes": [
+        "mode_1"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Playlist 4",
+      "description": "Synthetic playlist.",
+      "category": "category_2",
+      "max_party": 6,
+      "gametypes": [
+        "mode_2"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Playlist 5",
+      "description": "Synthetic playlist.",
+      "category": "category_1",
+      "max_party": 6,
+      "gametypes": [
+        "mode_1"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Playlist 6",
+      "description": "Synthetic playlist.",
+      "category": "category_2",
+      "max_party": 6,
+      "gametypes": [
+        "mode_2"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Playlist 7",
+      "description": "Synthetic playlist.",
+      "category": "category_1",
+      "max_party": 6,
+      "gametypes": [
+        "mode_1"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Playlist 8",
+      "description": "Synthetic playlist.",
+      "category": "category_2",
+      "max_party": 6,
+      "gametypes": [
+        "mode_2"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Playlist 9",
+      "description": "Synthetic playlist.",
+      "category": "category_1",
+      "max_party": 6,
+      "gametypes": [
+        "mode_1"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Playlist 10",
+      "description": "Synthetic playlist.",
+      "category": "category_2",
+      "max_party": 6,
+      "gametypes": [
+        "mode_2"
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Playlist 11",
+      "description": "Synthetic playlist.",
+      "category": "category_1",
+      "max_party": 4,
+      "gametypes": [
+        "mode_1"
+      ]
+    },
+    {
+      "id": 31,
+      "name": "Playlist 12",
+      "description": "Synthetic playlist.",
+      "category": "category_2",
+      "max_party": 4,
+      "gametypes": [
+        "mode_2"
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Playlist 13",
+      "description": "Synthetic playlist.",
+      "category": "category_1",
+      "max_party": 4,
+      "gametypes": [
+        "mode_1"
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Playlist 14",
+      "description": "Synthetic playlist.",
+      "category": "category_2",
+      "max_party": 4,
+      "gametypes": [
+        "mode_2"
+      ]
+    }
+  ]
+}

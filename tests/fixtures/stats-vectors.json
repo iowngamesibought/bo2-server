@@ -1,0 +1,85 @@
+{
+  "notice": "Public synthetic values only. Invented identities, names and values; no game bytes, captures or account data. The original client deserializers accepted these payloads in emulation.",
+  "provenance": {
+    "source_id": "LEAGUE-client-20261023-06",
+    "experiment": "stats-results",
+    "original_decoder_result_sha256": "5cd725b0eff192592aa47124860684fadcf1f082b56973cccc54eea33a4eac12"
+  },
+  "vectors": [
+    {
+      "kind": "rows",
+      "rows": [
+        [
+          1229801703532086340,
+          80,
+          1,
+          "synthetic_a",
+          [
+            1,
+            -1
+          ]
+        ],
+        [
+          6148933456521300104,
+          50,
+          2,
+          "synthetic_b",
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "payload": "0a44443333222211110950000000000000000a01000000000000001073796e7468657469635f61000800000000070100000007ffffffff0a88887777666655550932000000000000000a02000000000000001073796e7468657469635f6200080000000007030000000704000000"
+    },
+    {
+      "kind": "rows",
+      "rows": [
+        [
+          72623859790382856,
+          -5,
+          7,
+          "",
+          [
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ]
+      ],
+      "payload": "0a080706050403020109fbffffffffffffff0a07000000000000001000080000000007fbffffff07fcffffff07fdffffff07feffffff07ffffffff07000000000701000000070200000007030000000704000000"
+    },
+    {
+      "kind": "wrappers",
+      "wrappers": [
+        [
+          10001,
+          1229801703532086340,
+          [
+            1229801703532086340,
+            80,
+            1,
+            "synthetic_a",
+            [
+              9,
+              8
+            ]
+          ]
+        ],
+        [
+          10002,
+          1229801703532086340,
+          null
+        ]
+      ],
+      "payload": "081127000008000000000a44443333222211110950000000000000000a01000000000000001073796e7468657469635f6100080000000007090000000708000000081227000008010000000a4444333322221111"
+    }
+  ]
+}

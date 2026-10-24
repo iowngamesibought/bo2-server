@@ -1,0 +1,46 @@
+{
+  "notice": "Public synthetic values only. Invented keys, counters and values; no game bytes, captures or account data. The original client deserializers accepted these payloads in emulation.",
+  "provenance": {
+    "source_id": "LEAGUE-client-20261023-06",
+    "experiment": "archive-results",
+    "original_decoder_result_sha256": "e0b7dc78c028ed033b0620b97c62d072fdb6457a1b814d678f4510bcaf676252"
+  },
+  "vectors": [
+    {
+      "kind": "keys",
+      "values": [
+        [
+          1000,
+          8
+        ],
+        [
+          1001,
+          -2
+        ],
+        [
+          65535,
+          9223372036854775807
+        ]
+      ],
+      "payload": "06e80309080000000000000006e90309feffffffffffffff06ffff09ffffffffffffff7f"
+    },
+    {
+      "kind": "counters",
+      "values": [
+        [
+          10001,
+          7
+        ],
+        [
+          10002,
+          0
+        ],
+        [
+          4294967295,
+          -1
+        ]
+      ],
+      "payload": "0811270000090700000000000000081227000009000000000000000008ffffffff09ffffffffffffffff"
+    }
+  ]
+}
